@@ -29,7 +29,10 @@ interface FormData {
 export default function DeployForm({ onSubmit }: { onSubmit: (data: any) => void }) {
   const [showAdvancedOptions, setShowAdvancedOptions] = useState(false)
   const [miniServiceEnabled, setMiniServiceEnabled] = useState(true)
+  const [depositServiceEnabled, setDepositServiceEnabled] = useState(true)
+  const [settlementServiceEnabled, setSettlementServiceEnabled] = useState(true)
   const [migrateValue, setMigrateValue] = useState('FALSE')
+  const [forceImageTag, setForceImageTag] = useState(false)
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -37,7 +40,7 @@ export default function DeployForm({ onSubmit }: { onSubmit: (data: any) => void
     const data: FormData = {
       githubUrl: formData.get('githubUrl') as string,
       namespace: formData.get('namespace') as string,
-      forceImageTag: formData.get('forceImageTag') === 'on',
+      forceImageTag: forceImageTag,
       envVars: {},
       miniService: {
         enabled: true,
@@ -61,9 +64,9 @@ export default function DeployForm({ onSubmit }: { onSubmit: (data: any) => void
       }
 
       data.miniService = {
-        enabled: formData.get('miniServiceEnabled') === 'on',
-        depositServiceEnabled: formData.get('depositServiceEnabled') === 'on',
-        settlementServiceEnabled: formData.get('settlementServiceEnabled') === 'on'
+        enabled: miniServiceEnabled,
+        depositServiceEnabled: depositServiceEnabled,
+        settlementServiceEnabled: settlementServiceEnabled
       }
 
       const customEnvVars = formData.get('customEnvVars') as string
@@ -116,7 +119,7 @@ export default function DeployForm({ onSubmit }: { onSubmit: (data: any) => void
             className="w-full px-3 py-2 border rounded-md"
           />
           <p className="mt-1 text-sm text-gray-500">
-            The namespace where the application will be deployed. If it doesn't exist, it will be created.
+            The namespace where the application will be deployed. If it doesn&apos;t exist, it will be created.
           </p>
         </div>
 
@@ -147,7 +150,13 @@ export default function DeployForm({ onSubmit }: { onSubmit: (data: any) => void
                     id="miniServiceEnabled"
                     name="miniServiceEnabled"
                     checked={miniServiceEnabled}
-                    onChange={(e) => setMiniServiceEnabled(e.target.checked)}
+                    onChange={(e) => {
+                      setMiniServiceEnabled(e.target.checked);
+                      if (!e.target.checked) {
+                        setDepositServiceEnabled(false);
+                        setSettlementServiceEnabled(false);
+                      }
+                    }}
                     className="h-4 w-4 text-blue-600 rounded border-gray-300"
                   />
                   <label htmlFor="miniServiceEnabled" className="ml-2 text-sm text-gray-700">
@@ -161,7 +170,8 @@ export default function DeployForm({ onSubmit }: { onSubmit: (data: any) => void
                       type="checkbox"
                       id="depositServiceEnabled"
                       name="depositServiceEnabled"
-                      checked={miniServiceEnabled}
+                      checked={depositServiceEnabled}
+                      onChange={(e) => setDepositServiceEnabled(e.target.checked)}
                       disabled={!miniServiceEnabled}
                       className="h-4 w-4 text-blue-600 rounded border-gray-300"
                     />
@@ -175,7 +185,8 @@ export default function DeployForm({ onSubmit }: { onSubmit: (data: any) => void
                       type="checkbox"
                       id="settlementServiceEnabled"
                       name="settlementServiceEnabled"
-                      checked={miniServiceEnabled}
+                      checked={settlementServiceEnabled}
+                      onChange={(e) => setSettlementServiceEnabled(e.target.checked)}
                       disabled={!miniServiceEnabled}
                       className="h-4 w-4 text-blue-600 rounded border-gray-300"
                     />
@@ -319,6 +330,8 @@ export default function DeployForm({ onSubmit }: { onSubmit: (data: any) => void
                   type="checkbox"
                   id="forceImageTag"
                   name="forceImageTag"
+                  checked={forceImageTag}
+                  onChange={(e) => setForceImageTag(e.target.checked)}
                   className="h-4 w-4 text-blue-600 rounded border-gray-300"
                 />
                 <label htmlFor="forceImageTag" className="ml-2 text-sm text-gray-700">

@@ -55,15 +55,15 @@ export default function Home() {
         
         <div className="bg-white rounded-lg shadow-lg p-6">
           <h2 className="text-xl font-semibold mb-4">Advanced Options</h2>
-          <p className="text-gray-600">
-            Need more control? The simple deployment interface includes advanced options for:
+          <div className="text-gray-600">
+            <p className="mb-2">Need more control? The simple deployment interface includes advanced options for:</p>
             <ul className="list-disc list-inside mt-2">
               <li>Chain ID configuration</li>
               <li>CORS settings</li>
               <li>Deployment modes</li>
               <li>Custom environment variables</li>
             </ul>
-          </p>
+          </div>
         </div>
       </div>
       
