@@ -172,7 +172,7 @@ export default function SimpleDeploy() {
         {showCleanup && (
           <div className="bg-white rounded-lg shadow-lg p-6">
             <h2 className="text-xl font-semibold mb-4">Troubleshooting</h2>
-            <p className="mb-4">If you're seeing errors about "another operation in progress", you can try to clean up stuck operations:</p>
+            <p className="mb-4">If you&apos;re seeing errors about &quot;another operation in progress&quot;, you can try to clean up stuck operations:</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Namespace</label>

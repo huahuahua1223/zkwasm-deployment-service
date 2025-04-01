@@ -47,7 +47,7 @@ export default function Home() {
           <h2 className="text-xl font-semibold mb-4">Requirements</h2>
           <p className="text-gray-600">
             <strong>GitHub Repository:</strong><br />
-            - Must have a container image published to GitHub Container Registry with the 'latest' tag<br /><br />
+            - Must have a container image published to GitHub Container Registry with the &lsquo;latest&rsquo; tag<br /><br />
             <strong>Kubernetes:</strong><br />
             - Valid kubeconfig with permissions to create and manage resources
           </p>

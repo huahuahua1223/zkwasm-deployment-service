@@ -70,7 +70,7 @@ export default function DeployForm({ onSubmit }: { onSubmit: (data: any) => void
       if (customEnvVars) {
         try {
           data.envVars.custom = JSON.parse(customEnvVars)
-        } catch (error) {
+        } catch (err) {
           alert('Invalid JSON format for custom environment variables')
           return
         }
