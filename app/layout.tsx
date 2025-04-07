@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import AuthProvider from "./components/AuthProvider";
+import NavBar from "./components/NavBar";
 
 export const metadata: Metadata = {
   title: "ZKWasm Deployment Service",
@@ -14,7 +16,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="light">
       <body className="antialiased bg-white">
-        {children}
+        <AuthProvider>
+          <NavBar />
+          <main>{children}</main>
+        </AuthProvider>
       </body>
     </html>
   );

@@ -68,7 +68,7 @@ export default function Home() {
       </div>
       
       <footer className="mt-12 pt-6 text-center text-gray-500">
-        <p>ZKWasm Deployment Service &copy; 2024</p>
+        <p>ZKWasm Deployment Service &copy; {new Date().getFullYear()}</p>
       </footer>
     </div>
   )
