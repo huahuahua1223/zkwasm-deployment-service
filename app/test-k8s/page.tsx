@@ -75,8 +75,8 @@ export default function TestK8s() {
           <p className="mb-4">Make sure you have set the KUBECONFIG_BASE64 environment variable in your .env file before testing.</p>
           <p className="mb-4">To set the KUBECONFIG_BASE64 environment variable:</p>
           <ol className="list-decimal list-inside space-y-2">
-            <li>Generate the base64 encoded kubeconfig: <code className="bg-gray-100 px-2 py-1 rounded">cat ~/kube/config | base64 -w 0 &gt; kubeconfig_base64.txt</code></li>
-            <li>Add the content to your .env file: <code className="bg-gray-100 px-2 py-1 rounded">KUBECONFIG_BASE64=&lt;content of kubeconfig_base64.txt&gt;</code></li>
+            <li>Generate the base64 encoded kubeconfig: <code className="bg-gray-100 text-[#D63384] px-2 py-1 rounded">cat ~/kube/config | base64 -w 0 &gt; kubeconfig_base64.txt</code></li>
+            <li>Add the content to your .env file: <code className="bg-gray-100 text-[#D63384] px-2 py-1 rounded">KUBECONFIG_BASE64=&lt;content of kubeconfig_base64.txt&gt;</code></li>
             <li>Restart the server</li>
           </ol>
         </div>

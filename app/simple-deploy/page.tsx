@@ -125,12 +125,12 @@ export default function SimpleDeploy() {
       <div className="space-y-8">
         <div className="bg-white rounded-lg shadow-lg p-6">
           <h2 className="text-xl font-semibold mb-4">Using Branch Information</h2>
-          <p className="mb-2">You can now specify a branch in your GitHub URL by using the format: <code className="bg-gray-100 px-2 py-1 rounded">https://github.com/username/repository/tree/branch</code></p>
+          <p className="mb-2">You can now specify a branch in your GitHub URL by using the format: <code className="bg-gray-100 text-[#D63384] px-2 py-1 rounded">https://github.com/username/repository/tree/branch</code></p>
           <p className="mb-2">When a branch is specified:</p>
           <ul className="list-disc list-inside space-y-1 mb-4">
             <li>The system will try to find a container image with a tag matching the branch name</li>
-            <li>If no exact match is found, it will try variations like <code className="bg-gray-100 px-2 py-1 rounded">branch-name</code>, <code className="bg-gray-100 px-2 py-1 rounded">feature-xyz</code> (for <code className="bg-gray-100 px-2 py-1 rounded">feature/xyz</code>), or <code className="bg-gray-100 px-2 py-1 rounded">branch-feature-xyz</code></li>
-            <li>If no branch-specific image is found, it will fall back to the <code className="bg-gray-100 px-2 py-1 rounded">latest</code> tag</li>
+            <li>If no exact match is found, it will try variations like <code className="bg-gray-100 text-[#D63384] px-2 py-1 rounded">branch-name</code>, <code className="bg-gray-100 text-[#D63384] px-2 py-1 rounded">feature-xyz</code> (for <code className="bg-gray-100 text-[#D63384] px-2 py-1 rounded">feature/xyz</code>), or <code className="bg-gray-100 text-[#D63384] px-2 py-1 rounded">branch-feature-xyz</code></li>
+            <li>If no branch-specific image is found, it will fall back to the <code className="bg-gray-100 text-[#D63384] px-2 py-1 rounded">latest</code> tag</li>
           </ul>
           <p>This feature is useful for deploying specific versions or feature branches of your application.</p>
         </div>
